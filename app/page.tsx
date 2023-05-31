@@ -1,5 +1,6 @@
 "use client";
 import Image from 'next/image'
+import HeroSection from '../components/HeroSection'
 import Navbar from '../components/Navbar'
 import SideBar from '../components/Sidebar'
 import {BrowserRouter as Router} from 'react-router-dom'
@@ -15,6 +16,7 @@ export default function Home() {
     <Router>
       <SideBar isOpen={isOpen} toggle={toggle}/>
       <Navbar toggle={toggle}/>
+      <HeroSection/>
     </Router>
   )
 }
