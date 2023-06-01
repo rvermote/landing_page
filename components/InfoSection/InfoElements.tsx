@@ -6,7 +6,7 @@ interface InfoContainer {
 
 export const InfoContainer = styled.div<InfoContainer>`
     color:#fff;
-    background: ${({lightBg}) => (lightBg ? "#f9f9f9" : "010606")};
+    background: ${({lightBg}) => (lightBg ? "#f9f9f9" : "#010606")};
     
     @media screen and (max-width: 768px){
         padding: 100px 0;
@@ -33,7 +33,7 @@ export const InfoRow = styled.div<InfoRow>`
     grid-template-areas: ${({imgStart}) => (imgStart ? `'col2 col1'` : `'col1 col2'`)};
     
     @media screen and (max-width: 768px){
-        grid-template-areas: ${({imgStart}) => (imgStart ? `'col1' 'col2'` : `'col1 col1' 'col2 col2'`)}
+        grid-template-areas: 'col1' 'col2';
     }`
 
 export const Column1 = styled.div`
@@ -42,9 +42,9 @@ export const Column1 = styled.div`
     grid-area: col1;`
 
 export const Column2 = styled.div`
-margin-bottom: 15px;
-padding: 0 15px;
-grid-area: col2;`
+    margin-bottom: 15px;
+    padding: 0 15px;
+    grid-area: col2;`
 
 export const TextWrapper = styled.div`
     max-width: 540px;
@@ -52,7 +52,7 @@ export const TextWrapper = styled.div`
     padding-bottom: 60px;`
 
 export const TopLine = styled.p`
-    color: #01bf71;
+    color: #82a3ff;
     font-size: 16px;
     line-height: 16px;
     font-weight: 700;

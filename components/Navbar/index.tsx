@@ -23,7 +23,7 @@ const Navbar = ({toggle}: {toggle: () => void}) => {
               <NavLinks to="services">Services</NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="sign_up">Sign Up</NavLinks>
+              <NavLinks to="contact">Contact</NavLinks>
             </NavItem>
           </NavMenu>
           <NavBtn>
