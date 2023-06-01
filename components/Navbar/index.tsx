@@ -8,22 +8,22 @@ const Navbar = ({toggle}: {toggle: () => void}) => {
     <>
       <Nav>
         <NavbarContainer>
-          <NavLogo to="/">Gonexus</NavLogo>
+          <NavLogo to="hero" smooth="true">Gonexus</NavLogo>
           <MobileIcon onClick={toggle}>
             <FaBars />
           </MobileIcon>
           <NavMenu>
             <NavItem>
-              <NavLinks to="about">About</NavLinks>
+              <NavLinks to="about" smooth="true">About</NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="discover">Discover</NavLinks>
+              <NavLinks to="discover" smooth="true">Discover</NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="services">Services</NavLinks>
+              <NavLinks to="services" smooth="true">Services</NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="contact">Contact</NavLinks>
+              <NavLinks to="contact" smooth="true">Contact</NavLinks>
             </NavItem>
           </NavMenu>
           <NavBtn>
