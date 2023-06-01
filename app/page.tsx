@@ -3,6 +3,8 @@ import Image from 'next/image'
 import HeroSection from '../components/HeroSection'
 import Navbar from '../components/Navbar'
 import SideBar from '../components/Sidebar'
+import InfoSection from '../components/InfoSection'
+import {homeObjOne} from '@/components/InfoSection/Data'
 import {BrowserRouter as Router} from 'react-router-dom'
 import {useState} from 'react'
 
@@ -17,6 +19,7 @@ export default function Home() {
       <SideBar isOpen={isOpen} toggle={toggle}/>
       <Navbar toggle={toggle}/>
       <HeroSection/>
+      <InfoSection {...homeObjOne}/>
     </Router>
   )
 }
