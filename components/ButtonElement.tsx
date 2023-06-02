@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {Link} from 'react-scroll';
+import Link from 'next/link';
 
 interface Button{
     primary: number
@@ -10,11 +10,11 @@ interface Button{
 
 export const Button = styled(Link)<Button>`
     border-radius: 50px;
+    width: 150px;
+    height: 50px;
     background: ${({primary}) => (primary ? '#00d9ff' : '#010606')};
     white-space: nowrap;
-    padding: '14px 48px';
     color: ${({dark}) => (dark ? '#010606' : '#fff')};
-    font-size: '20px';
     outline: none;
     border: none;
     cursor: pointer;

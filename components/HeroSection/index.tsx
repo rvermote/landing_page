@@ -13,7 +13,7 @@ const HeroSection = () => {
           <HeroH1>Igniting Connections</HeroH1>
           <HeroP>Sign up today and receive a $20 discount towards your next consultation setup.</HeroP>
           <HeroBtnWrapper>
-            <Button to='signup' primary={1} dark={1} dark2={1} exact="true">Get Started</Button>
+            <Button href='#contact' primary={1} dark={1} dark2={1} exact="true">Get Started</Button>
           </HeroBtnWrapper>
         </HeroContent>
     </HeroContainer>

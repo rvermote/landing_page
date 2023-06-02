@@ -1,10 +1,12 @@
-"use client";
 import styled from 'styled-components';
-import {Link as LinkR} from 'react-router-dom'
-import {Link as LinkS} from 'react-scroll'
+import Link from 'next/link';
 
-export const Nav = styled.nav`
-  background: #000;
+interface Nav{
+    scrollNav: boolean;
+}
+
+export const Nav = styled.nav<Nav>`
+  background: ${({scrollNav}) => (scrollNav ? "#000" : "transparent")};
   height: 80px;
   margin-top: -80px;
   display: flex;
@@ -30,7 +32,7 @@ export const NavbarContainer = styled.div`
     max-width: 1100px;
     `
 
-export const NavLogo = styled(LinkS)`
+export const NavLogo = styled(Link)`
     color: #fff;
     justify-self: flex-start;
     cursor: pointer;
@@ -40,6 +42,19 @@ export const NavLogo = styled(LinkS)`
     margin-left: 24px;
     font-weight: bold;
     text-decoration: none;
+    ` 
+
+export const NavLogo2 = styled(Link)`
+    color: #fff;
+    justify-self: flex-start;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    margin-left: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    visibility: hidden;
     ` 
 
 export const MobileIcon = styled.div`
@@ -71,7 +86,7 @@ export const NavItem = styled.li`
     height: 80px;
 `
 
-export const NavLinks = styled(LinkS)`
+export const NavLinks = styled(Link)`
     color: #fff;
     display: flex;
     align-items: center;
@@ -91,25 +106,5 @@ export const NavBtn = styled.nav`
 
     @media screen and (max-width: 768px){
         display: none;
-    }
-    `
-
-export const NavBtnLink = styled(LinkR)`
-    border-radius: 50px;
-    background: #00d9ff;
-    white-space: nowrap;
-    padding: 10px 22px;
-    color: #010606;
-    font-size: 16px;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    text-decoration: none;
-
-    &:hover{
-        transition: all 0.2s ease-in-out;
-        background: #fff;
-        color: #010606;
     }
     `

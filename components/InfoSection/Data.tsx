@@ -51,3 +51,21 @@ export const homeObjTwo:HomeObjInput = {
     primary: false,
     darkText: true
 }
+
+export const homeObjThree:HomeObjInput = {
+    id: 'contact',
+    lightBg: true,
+    lightText: false,
+    lightTextDesc: false,
+    topLine: "Premium Service",
+    headline: "Unlimited Transactions with zero fees",
+    description: "Get access to our exclusive app that allows you to send unlimited transactions without getting charged any fees.",
+    buttonLabel: "Get Started",
+    imgStart: true,
+    img: "/images/svg_2.svg",
+    alt: "Car",
+    dark: false,
+    dark2: false,
+    primary: false,
+    darkText: true
+}
