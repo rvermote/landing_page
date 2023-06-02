@@ -1,34 +1,46 @@
-"use client";
+"use client"
 import React from 'react'
+import {useState, useEffect} from 'react'
 import {FaBars} from 'react-icons/fa'
-import { Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLinks, NavBtn, NavBtnLink} from './NavbarElements'
+import { Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLinks, NavLogo2} from './NavbarElements'
 
 const Navbar = ({toggle}: {toggle: () => void}) => {
+
+  const [scrollNav, setScrollNav] = useState<boolean>(false)
+  const changeNav = () => {
+    if (window.scrollY >= 80) {
+      setScrollNav(true)
+    } else {
+      setScrollNav(false)
+    }
+  }
+  useEffect(() => {
+    window.addEventListener('scroll', changeNav)
+  },[])
+
   return (
     <>
-      <Nav>
-        <NavbarContainer>
-          <NavLogo to="hero" smooth="true">Gonexus</NavLogo>
+      <Nav scrollNav={scrollNav}>
+        <NavbarContainer >
+          <NavLogo href="#hero">Gonexus</NavLogo>
           <MobileIcon onClick={toggle}>
             <FaBars />
           </MobileIcon>
           <NavMenu>
             <NavItem>
-              <NavLinks to="about" smooth="true">About</NavLinks>
+              <NavLinks href="#about">About</NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="discover" smooth="true">Discover</NavLinks>
+              <NavLinks href="#discover">Discover</NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="services" smooth="true">Services</NavLinks>
+              <NavLinks href="#services">Services</NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="contact" smooth="true">Contact</NavLinks>
+              <NavLinks href="#contact">Contact</NavLinks>
             </NavItem>
           </NavMenu>
-          <NavBtn>
-            <NavBtnLink to='/sign_in'>Sign In</NavBtnLink>
-          </NavBtn>
+          <NavLogo2 href="#hero">Gonexus</NavLogo2>
         </NavbarContainer>
       </Nav>
     </>
