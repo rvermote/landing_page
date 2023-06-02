@@ -1,5 +1,5 @@
 "use client";
-import Image from 'next/image'
+import React from 'react';
 import HeroSection from '../components/HeroSection'
 import Navbar from '../components/Navbar'
 import SideBar from '../components/Sidebar'

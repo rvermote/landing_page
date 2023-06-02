@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
     webpack(config, { isServer }) {
         const prefix = config.assetPrefix ?? config.basePath ?? '';
