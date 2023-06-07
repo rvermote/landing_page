@@ -8,7 +8,7 @@ export const InfoContainer = styled.div<InfoContainer>`
     color:#fff;
     background: ${({lightBg}) => (lightBg ? "#f9f9f9" : "#010606")};
     
-    @media screen and (max-width: 768px){
+    @media screen and (max-width: 900px){
         padding: 100px 0;
     }`
 
@@ -32,7 +32,7 @@ export const InfoRow = styled.div<InfoRow>`
     align-items: center;
     grid-template-areas: ${({imgStart}) => (imgStart ? `'col2 col1'` : `'col1 col2'`)};
     
-    @media screen and (max-width: 768px){
+    @media screen and (max-width: 900px){
         grid-template-areas: 'col1' 'col2';
     }`
 

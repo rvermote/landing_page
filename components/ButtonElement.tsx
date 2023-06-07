@@ -12,6 +12,7 @@ export const Button = styled(Link)<Button>`
     border-radius: 50px;
     width: 150px;
     height: 50px;
+    font-weight: bold;
     background: ${({primary}) => (primary ? '#00d9ff' : '#010606')};
     white-space: nowrap;
     color: ${({dark}) => (dark ? '#010606' : '#fff')};

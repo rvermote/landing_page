@@ -4,7 +4,9 @@ import HeroSection from '../components/HeroSection'
 import Navbar from '../components/Navbar'
 import SideBar from '../components/Sidebar'
 import InfoSection from '../components/InfoSection'
-import {homeObjOne,homeObjTwo, homeObjThree} from '@/components/InfoSection/Data'
+import Footer from '../components/FooterSection'
+import Mail from '../components/MailSection'
+import {homeObjOne,homeObjTwo} from '@/components/InfoSection/Data'
 import Services from '@/components/Services'
 import {useState} from 'react'
 
@@ -22,6 +24,8 @@ export default function Home() {
       <InfoSection {...homeObjOne}/>
       <InfoSection {...homeObjTwo}/>
       <Services/>
+      <Mail/>
+      <Footer/>
     </>
   )
 }

@@ -37,7 +37,7 @@ const Navbar = ({toggle}: {toggle: () => void}) => {
               <NavLinks href="#services">Services</NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks href="#contact">Contact</NavLinks>
+              <NavLinks href="#mail">Contact</NavLinks>
             </NavItem>
           </NavMenu>
           <NavLogo2 href="#hero">Gonexus</NavLogo2>
