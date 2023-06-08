@@ -1,5 +1,5 @@
 import React from 'react'
-import {ChakraProvider, Container, FormControl, FormErrorMessage, FormLabel, Heading, Input, Textarea, Button} from "@chakra-ui/react"
+import {useToast, ChakraProvider, Container, FormControl, FormErrorMessage, FormLabel, Heading, Input, Textarea, Button, Text} from "@chakra-ui/react"
 import {useState} from 'react'
 
 interface MailStateValues {
@@ -13,9 +13,15 @@ interface MailStateTouched {
   email: boolean,
 }
 
+const defMailState = {
+  name: false,
+  email: false
+}
+
 interface MailState {
   values: MailStateValues
   isLoading: boolean
+  error: string
 }
 
 const initValues = {
@@ -24,13 +30,13 @@ const initValues = {
   message: '',
 }
 
-const initState = {values:initValues,isLoading:false}
+const initState = {values:initValues,isLoading:false, error:""}
 
 const Mail = () => {
-
+  const toast = useToast()
   const [State, setState] = useState<MailState>(initState)
-  const [touched, setTouched] = useState<MailStateTouched>({name: false, email: false})
-  const {values,isLoading} = State
+  const [touched, setTouched] = useState<MailStateTouched>(defMailState)
+  const {values,isLoading,error} = State
 
   const onBlur = (target: HTMLInputElement | HTMLTextAreaElement) => setTouched((prev) => ({...prev, [target.name]: true}))
 
@@ -51,6 +57,9 @@ const Mail = () => {
           "Content-Type": "application/json",
           Accept: "application/json",
       },
+  }).then((res) => {
+    if (!res.ok) throw new Error("Failed to send message");
+    return res.json()
   })
 
   const onSubmit = async () => {
@@ -60,7 +69,27 @@ const Mail = () => {
         isLoading: true
       }
     })
-    await sendContactForm(values)
+
+    try{
+      await sendContactForm(values);
+      setTouched(defMailState);
+      setState(initState)
+      toast({
+        title: "Message sent",
+        description: "Thank you for contacting us!",
+        status: "success",
+        duration: 2000,
+        position: "top",
+      })
+    } catch(error:any){
+        setState((prev) => {
+          return {
+            ...prev,
+            isLoading: false,
+            error:error.message
+          }
+        })
+    }
   }
 
   return (
@@ -68,6 +97,11 @@ const Mail = () => {
     <ChakraProvider>
       <Container id="mail" textAlign="center" maxW="550px" mt={12}>
         <Heading>Contact</Heading>
+        {error && (
+          <Text color="red.300" my={4} fontSize="xl">
+            {error}
+          </Text>
+        )}
 
         <FormControl isRequired isInvalid={touched.name && !values.name} mb={5}>
           <FormLabel>Name</FormLabel>

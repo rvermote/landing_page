@@ -10,7 +10,4 @@ export const transporter = nodemailer.createTransport({
 export const mailOptions = {
     from: process.env.EMAIL,
     to: process.env.EMAIL,
-    subject: 'New Message from Portfolio',
-    text: 'New Message from Portfolio',
-    html: '<p>New Message from Portfolio</p>'
 }
