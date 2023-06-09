@@ -18,8 +18,8 @@ const Sidebar = ({isOpen,toggle}: {isOpen:boolean, toggle: () => void}) => {
                 <SidebarLink onClick={toggle} href="#services">
                     Services
                 </SidebarLink>
-                <SidebarLink onClick={toggle} href="#contact">
-                    Sign Up
+                <SidebarLink onClick={toggle} href="#mail">
+                    Contact us
                 </SidebarLink>
             </SidebarMenu>
         </SidebarWrapper>
