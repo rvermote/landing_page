@@ -35,9 +35,9 @@ export async function POST(request: Request) {
             ...mailOptions,
             ...generateEmailContent(data)
         })
-        return NextResponse.json(data)
+        return NextResponse.json({message:"success"},{status: 200})
     }catch(error){
-        console.log(error)
+        return NextResponse.json({message: "Could not send email"}, {status: 400})
     }
 
 }
