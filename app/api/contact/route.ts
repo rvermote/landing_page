@@ -1,17 +1,24 @@
+import { NextResponse } from 'next/server'
 import {mailOptions, transporter} from '@/config/nodemailer'
 
-const CONTACT_MESSAGE_FIELDS = {
+interface EmailData {
+    name: string,
+    email: string,
+    message: string
+}
+
+const CONTACT_MESSAGE_FIELDS: {[char: string]: string} = {
     name: "Name",
     email: "Email",
     subject: "Subject",
     message: "Message"
 }
 
-const generateEmailContent = (data) => {
-    const stringData = Object.entries(data).reduce((str,[key, val]) => 
+const generateEmailContent = (data: EmailData) => {
+    const stringData = Object.entries(data).reduce((str,[key, val]:string[]) => 
         str += `${CONTACT_MESSAGE_FIELDS[key]}: \n${val} \n \n`, "")
     
-    const htmlData = Object.entries(data).reduce((str,[key, val]) => 
+    const htmlData = Object.entries(data).reduce((str,[key, val]:string[]) => 
         str += `<h1 className="">${CONTACT_MESSAGE_FIELDS[key]}</h1><p>${val}</p>`, "")
 
     return {
@@ -21,16 +28,16 @@ const generateEmailContent = (data) => {
     }
 }
 
-export async function POST(request) {
+export async function POST(request: Request) {
     const data = await request.json()
     try {
         await transporter.sendMail({
             ...mailOptions,
             ...generateEmailContent(data)
         })
+        return new NextResponse(JSON.stringify({success: true}))
     }catch(error){
         console.log(error)
-        return res.status(500).json({error})
     }
 
 }

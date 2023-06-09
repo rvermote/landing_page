@@ -58,6 +58,7 @@ const Mail = () => {
           Accept: "application/json",
       },
   }).then((res) => {
+    console.log(res)
     if (!res.ok) throw new Error("Failed to send message");
     return res.json()
   })
@@ -76,7 +77,6 @@ const Mail = () => {
       setState(initState)
       toast({
         title: "Message sent",
-        description: "Thank you for contacting us!",
         status: "success",
         duration: 2000,
         position: "top",
