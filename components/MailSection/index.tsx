@@ -58,7 +58,6 @@ const Mail = () => {
           Accept: "application/json",
       },
   }).then((res) => {
-    console.log(res)
     if (!res.ok) throw new Error("Failed to send message");
     return res.json()
   })
@@ -109,9 +108,9 @@ const Mail = () => {
           <FormErrorMessage>Required</FormErrorMessage>
         </FormControl>
 
-        <FormControl isRequired isInvalid={touched.name && !values.name} mb={5}>
-          <FormLabel>Name</FormLabel>
-          <Input type="text" name="name" errorBorderColor="red.300" value={values.name} onChange={(e) => handleChange(e.target)} onBlur={(e) => onBlur(e.target)}/>
+        <FormControl mb={5}>
+          <FormLabel>Name (optional)</FormLabel>
+          <Input type="text" name="name" value={values.name} onChange={(e) => handleChange(e.target)} onBlur={(e) => onBlur(e.target)}/>
           <FormErrorMessage>Required</FormErrorMessage>
         </FormControl>
 
@@ -120,7 +119,7 @@ const Mail = () => {
           <Textarea name="message" rows={6} value={values.message} onChange={(e) => handleChange(e.target)}/>
         </FormControl>
 
-        <Button variant="outline" isLoading={isLoading} colorScheme="blue" isDisabled={!values.name || !values.email} onClick={onSubmit} mb={5}>Submit</Button>
+        <Button variant="outline" isLoading={isLoading} colorScheme="blue" isDisabled={!values.email} onClick={onSubmit} mb={5}>Submit</Button>
 
       </Container>
     </ChakraProvider>
