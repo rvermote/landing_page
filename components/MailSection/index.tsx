@@ -103,15 +103,15 @@ const Mail = () => {
           </Text>
         )}
 
-        <FormControl isRequired isInvalid={touched.name && !values.name} mb={5}>
-          <FormLabel>Name</FormLabel>
-          <Input type="text" name="name" errorBorderColor="red.300" value={values.name} onChange={(e) => handleChange(e.target)} onBlur={(e) => onBlur(e.target)}/>
-          <FormErrorMessage>Required</FormErrorMessage>
-        </FormControl>
-
         <FormControl isRequired isInvalid={touched.email && !values.email} mb={5}>
           <FormLabel>Email</FormLabel>
           <Input type="email" name="email" errorBorderColor="red.300" value={values.email} onChange={(e) => handleChange(e.target)} onBlur={(e) => onBlur(e.target)}/>
+          <FormErrorMessage>Required</FormErrorMessage>
+        </FormControl>
+
+        <FormControl isRequired isInvalid={touched.name && !values.name} mb={5}>
+          <FormLabel>Name</FormLabel>
+          <Input type="text" name="name" errorBorderColor="red.300" value={values.name} onChange={(e) => handleChange(e.target)} onBlur={(e) => onBlur(e.target)}/>
           <FormErrorMessage>Required</FormErrorMessage>
         </FormControl>
 
